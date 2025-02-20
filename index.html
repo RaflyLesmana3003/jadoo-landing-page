@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadoo - Travel Agency | Book Your Dream Vacation</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jadoo Travel Agency helps you plan and book your perfect vacation. Discover amazing destinations, hotels, and flights at the best prices.">
+    <meta name="keywords" content="travel agency, vacation packages, flight booking, hotel reservations, travel destinations, holiday packages, travel deals">
+    <meta name="author" content="Jadoo Travel Agency">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Jadoo - Travel Agency | Book Your Dream Vacation">
+    <meta property="og:description" content="Plan and book your perfect vacation with Jadoo Travel Agency. Find amazing destinations, hotels, and flights at the best prices.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jadoo - Travel Agency | Book Your Dream Vacation">
+    <meta name="twitter:description" content="Plan and book your perfect vacation with Jadoo Travel Agency. Find amazing destinations, hotels, and flights at the best prices.">
+    
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="assets/styles/index.css">
+</head>
+<body>
+    <div class="blob"></div>
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="assets/images/Logo.png" alt="jadoo">
+        </a>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21" stroke="#212832" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 6H21" stroke="#212832" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 18H21" stroke="#212832" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <nav class="nav">
+            <a href="#" class="nav-link">Destinations</a>
+            <a href="#" class="nav-link">Hotels</a>
+            <a href="#" class="nav-link">Flights</a>
+            <a href="#" class="nav-link">Bookings</a>
+            <a href="#" class="nav-link">Login</a>
+            <a href="#" class="btn btn-signup">Sign up</a>
+            <select class="lang-select">
+                <option>EN</option>
+                <option>ID</option>
+            </select>
+        </nav>
+    </header>
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="travel-calculator">
+                <h3>Calculate Your Travel Cost</h3>
+                <div class="calculator-form">
+                    <div class="input-group">
+                        <input type="text" id="from-location" placeholder="Input From" list="locations">
+                        <span class="to-text">TO</span>
+                        <input type="text" id="to-location" placeholder="Input To" list="locations">
+                        <datalist id="locations">
+                            <option value="New York, USA">
+                            <option value="Tokyo, Japan">
+                            <option value="Paris, France">
+                            <option value="London, UK">
+                            <option value="Sydney, Australia">
+                            <option value="Dubai, UAE">
+                            <option value="Singapore">
+                            <option value="Bali, Indonesia">
+                        </datalist>
+                    </div>
+                    <div class="date-picker">
+                        <div class="calendar">
+                            <div class="calendar-header">
+                                <button class="calendar-nav" onclick="prevMonth()">&lt;</button>
+                                <span id="current-month"></span>
+                                <button class="calendar-nav" onclick="nextMonth()">&gt;</button>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="weekday">Su</div>
+                                <div class="weekday">Mo</div>
+                                <div class="weekday">Tu</div>
+                                <div class="weekday">We</div>
+                                <div class="weekday">Th</div>
+                                <div class="weekday">Fr</div>
+                                <div class="weekday">Sa</div>
+                                <div id="calendar-days"></div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="travel-date">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateCost()">Calculate</button>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="assets/images/Hero-image.png" alt="Travel destinations" class="hero-image">
+        </div>
+    </section>
+<script>
+const baseCosts = {
+    'New York-Tokyo': 1200,
+    'New York-Paris': 800,
+    'New York-London': 750,
+    'Tokyo-Sydney': 900,
+    'Tokyo-Singapore': 600,
+    'Paris-Dubai': 700,
+    'London-Dubai': 650,
+    'Singapore-Bali': 200
+};
+
+const peakSeasons = [
+    { start: '06-15', end: '08-31' }, // Summer
+    { start: '12-15', end: '01-15' }  // Winter holidays
+];
+
+function getRouteBaseCost(fromLocation, toLocation) {
+    const route = `${fromLocation.split(',')[0]}-${toLocation.split(',')[0]}`;
+    const reverseRoute = `${toLocation.split(',')[0]}-${fromLocation.split(',')[0]}`;
+    return baseCosts[route] || baseCosts[reverseRoute] || 1000; // Default cost for undefined routes
+}
+
+function getSeasonalMultiplier(travelDate) {
+    const [travelMonth, travelDay] = travelDate.split('-').slice(1);
+    const travelMonthDay = `${travelMonth}-${travelDay}`;
+    
+    return peakSeasons.some(season => isDateInRange(travelMonthDay, season.start, season.end)) ? 1.3 : 1.0;
+}
+
+function createCostResultHTML(baseCost, seasonalMultiplier, finalCost) {
+    return `
+        <div class="cost-result">
+            <h4>Estimated Travel Cost</h4>
+            <p>Base Cost: $${baseCost}</p>
+            <p>Season Multiplier: ${seasonalMultiplier}x</p>
+            <p class="total-cost">Total Cost: $${finalCost}</p>
+        </div>
+    `;
+}
+
+function updateCostDisplay(resultHTML) {
+    const resultDiv = document.querySelector('.cost-result');
+    if (resultDiv) {
+        resultDiv.outerHTML = resultHTML;
+    } else {
+        document.querySelector('.calculator-form').insertAdjacentHTML('beforeend', resultHTML);
+    }
+}
+
+function validateInputs(fromLocation, toLocation, travelDate) {
+    if (!fromLocation || !toLocation || !travelDate) {
+        throw new Error('Please fill in all fields');
+    }
+}
+function toggleMenu() {
+    const nav = document.querySelector('.nav');
+    nav.classList.toggle('active');
+}
+function calculateCost() {
+    try {
+        const fromLocation = document.getElementById('from-location').value;
+        const toLocation = document.getElementById('to-location').value;
+        const travelDate = document.getElementById('travel-date').value;
+
+        validateInputs(fromLocation, toLocation, travelDate);
+
+        const baseCost = getRouteBaseCost(fromLocation, toLocation);
+        const seasonalMultiplier = getSeasonalMultiplier(travelDate);
+        const finalCost = Math.round(baseCost * seasonalMultiplier);
+
+        const resultHTML = createCostResultHTML(baseCost, seasonalMultiplier, finalCost);
+        updateCostDisplay(resultHTML);
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
+function isDateInRange(date, start, end) {
+    const [startMonth, startDay] = start.split('-').map(Number);
+    const [endMonth, endDay] = end.split('-').map(Number);
+    const [month, day] = date.split('-').map(Number);
+
+    if (startMonth <= endMonth) {
+        return (month > startMonth || (month === startMonth && day >= startDay)) &&
+               (month < endMonth || (month === endMonth && day <= endDay));
+    } else {
+        // Handle year-end ranges (e.g., December to January)
+        return (month >= startMonth && day >= startDay) || 
+               (month <= endMonth && day <= endDay);
+    }
+}
+let currentDate = new Date();
+let selectedDate = null;
+
+function updateCalendar() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const totalDays = lastDay.getDate();
+    const firstDayOfWeek = firstDay.getDay();
+    
+    document.getElementById('current-month').textContent = 
+        new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' }).format(currentDate);
+    
+    const calendarDays = document.getElementById('calendar-days');
+    calendarDays.innerHTML = '';
+    
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < firstDayOfWeek; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'calendar-day empty';
+        calendarDays.appendChild(emptyDay);
+    }
+    
+    // Add days of the month
+    for (let day = 1; day <= totalDays; day++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'calendar-day';
+        dayElement.textContent = day;
+        
+        const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        if (selectedDate === dateString) {
+            dayElement.classList.add('selected');
+        }
+        
+        dayElement.onclick = () => {
+            selectedDate = dateString;
+            document.getElementById('travel-date').value = dateString;
+            updateCalendar();
+        };
+        
+        calendarDays.appendChild(dayElement);
+    }
+}
+
+function prevMonth() {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    updateCalendar();
+}
+
+function nextMonth() {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    updateCalendar();
+}
+
+// Initialize calendar when page loads
+document.addEventListener('DOMContentLoaded', updateCalendar);
+</script>
+</body>
+</html>

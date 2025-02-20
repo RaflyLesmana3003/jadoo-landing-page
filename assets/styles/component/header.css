@@ -1,0 +1,95 @@
+header.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    padding: 0 max(2rem, min(7.5rem, 10%));
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.blob {
+    position: fixed;
+    top: -15rem;
+    right: -15rem;
+    width: 40rem;
+    height: 40rem;
+    background: linear-gradient(135deg, #FFF1DA 0%, #e5b568 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    opacity: 0.8;
+    z-index: -1;
+    animation: blobMove 20s ease-in-out infinite;
+}
+
+@keyframes blobMove {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 1.875rem;
+    width: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 3.125rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #212832;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FF7D68;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 0.5625rem 1.375rem;
+    border-radius: 0.3125rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-signup {
+    border: 0.0625rem solid #212832;
+    color: #212832;
+}
+
+.btn-signup:hover {
+    background-color: #212832;
+    color: #ffffff;
+}
+
+.lang-select {
+    border: none;
+    background: none;
+    font-size: 1.0625rem;
+    color: #212832;
+    cursor: pointer;
+    padding: 0.3125rem;
+    outline: none;
+}
+
+.lang-select:focus {
+    border-color: #FF7D68;
+}

@@ -1,0 +1,80 @@
+.travel-calculator {
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 32rem;
+}
+
+.travel-calculator h3 {
+    color: #212832;
+    margin-bottom: 1.5rem;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #DDD;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #212832;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #FF7D68;
+}
+
+.to-text {
+    color: #212832;
+    font-weight: 500;
+}
+
+.date-picker input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #DDD;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #212832;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.date-picker input:focus {
+    outline: none;
+    border-color: #FF7D68;
+}
+
+.calculate-btn {
+    background-color: #FF7D68;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculate-btn:hover {
+    background-color: #ff6954;
+}

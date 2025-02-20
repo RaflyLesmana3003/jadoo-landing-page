@@ -1,0 +1,117 @@
+/* Mobile Responsive Styles */
+.menu-toggle {
+    display: none;
+}
+/* Base Mobile Styles */
+@media screen and (max-width: 768px) {
+    /* Header & Navigation */
+    .header {
+        padding: 0 1rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 5rem;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        width: 100%;
+        height: calc(100vh - 5rem);
+        padding: 2rem;
+        gap: 2rem;
+        transition: right 0.3s ease;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    .hero-image-container {
+        order: -1;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Calculator */
+    .travel-calculator {
+        padding: 1rem;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .to-text {
+        align-self: flex-start;
+    }
+
+    /* Calendar */
+    .calendar {
+        padding: 0.5rem;
+    }
+
+    .calendar-day {
+        min-width: 2rem;
+        min-height: 2rem;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .header {
+        height: 4rem;
+    }
+
+    .nav {
+        top: 4rem;
+        height: calc(100vh - 4rem);
+    }
+
+    .logo img {
+        height: 1.5rem;
+    }
+
+    .travel-calculator h3 {
+        font-size: 1.5rem;
+    }
+
+    .calendar-grid {
+        gap: 0.25rem;
+    }
+
+    .weekday {
+        font-size: 0.75rem;
+    }
+
+    .calendar-day {
+        min-width: 1.75rem;
+        min-height: 1.75rem;
+        padding: 0.25rem;
+        font-size: 0.75rem;
+    }
+}
